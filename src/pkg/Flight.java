@@ -1,26 +1,28 @@
 package pkg;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Flight {
 	
 	
-	private int tailNum;
+	private int fltNum;
 	private String company;
-	private String APDest;
+	private String fltCode;
+	private String APDest;// Airport Destination
 	private String APOrigin;
-	private String CTDest;
+	private String CTDest;// City Destination
 	private String CTOrigin;
-	private String CDest;
+	private String CDest; //Country Destination
 	private String COrigin;
 	private double flightLength;
-	private LocalDateTime flightTime;
+	private Date flightTime;
 	public enum flightClass {Arrival, Departure};
 	private flightClass type;
 	
 	
-	public Flight(int tailNum, String company, String APDest, String APOrigin, String CTDest, String CTOrigin, String CDest, String COrigin, LocalDateTime flightTime, flightClass type) {
-		this.tailNum = tailNum;
+	public Flight(String code,int fltNum, String company, String APDest, String APOrigin, String CTDest, String CTOrigin, String CDest, String COrigin, Date flightTime) {
+		this.fltNum = fltNum;
 		this.company = company;
 		this.APDest = APDest;
 		this.APOrigin = APOrigin;
@@ -29,9 +31,16 @@ public class Flight {
 		this.CDest = CDest;
 		this.COrigin = COrigin;
 		this.flightTime = flightTime;
-		this.type = type;
+		if(code.equals("TLV")) {
+			type = flightClass.Departure;
+		}else {
+			type = flightClass.Arrival;
+		}
 		
 		
+	}
+	public flightClass getType() {
+		return type;
 	}
 	
 	
