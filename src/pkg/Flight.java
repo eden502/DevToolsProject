@@ -31,7 +31,7 @@ public class Flight {
 		this.CDest = CDest;
 		this.COrigin = COrigin;
 		this.flightTime = flightTime;
-		if(code.equals("TLV")) {
+		if(COrigin.toUpperCase().equals("ISRAEL")) {
 			type = flightClass.Departure;
 		}else {
 			type = flightClass.Arrival;
@@ -41,6 +41,20 @@ public class Flight {
 	}
 	public flightClass getType() {
 		return type;
+	}
+	public Date getTime() {
+		return flightTime;
+	}
+	public String getCOrigin() {
+		return COrigin;
+	}
+	
+	public String toString() {	
+		
+		return "|Flight num: "+fltNum+"||Carrier: "+company+"||Destination: "+APDest+","+CTDest+","+CDest+"||\n|Origin: "+APOrigin+","+CTOrigin+","+COrigin+"||\n|Time: "+flightTime; 
+	}
+	public int getNum() {
+		return this.fltNum;
 	}
 	
 	
