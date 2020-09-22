@@ -56,7 +56,11 @@ public class Flight {
 	public int getNum() {
 		return this.fltNum;
 	}
-	
+	public String getExport() {
+		
+		return fltNum+" "+company+" "+APDest+" "+APOrigin+" "+CTDest+" "+CTOrigin+" "+CDest+" "+COrigin+" "+flightTime.toInstant();
+		
+	}
 	
 
 }

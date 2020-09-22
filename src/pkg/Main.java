@@ -1,5 +1,6 @@
 package pkg;
 
+import java.io.File;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -11,8 +12,8 @@ public class Main {
 
 		Scanner scan = new Scanner(System.in);
 		Airport AP = new Airport("TLV");
-		Date d1 = new Date(2020, 10, 10, 10, 10);
-		Date d2 = new Date(2020, 10, 10, 9, 10);
+		Date d1 = new Date(2020, 9, 10, 10, 10);
+		Date d2 = new Date(2020, 9, 10, 9, 10);
 		Flight f1 = new Flight("TLV", 002, "Elal", "Shermetyevo", "Natbag", "Moscow", "Lod", "Russia", "Israel", d1);
 		Flight f2 = new Flight("TLV", 001, "Elal", "afaf", "Natbag", "Moscow", "Lod", "Russia", "Israel", d2);
 		AP.addFlight(f1);
@@ -115,7 +116,7 @@ public class Main {
 
 				break;
 			case 8:
-
+				AP.exportToText();
 				break;
 			case 9:
 
@@ -135,7 +136,7 @@ public class Main {
 		System.out.println("3: Departures Schedule");
 		System.out.println("4: Arrivals Schedule");
 		System.out.println("5: Search Arrivals");
-		System.out.println("6: Seartch Departures");
+		System.out.println("6: Search Departures");
 		System.out.println("7: Read From File");
 		System.out.println("8: Write To File");
 		System.out.println("0: Exit");
@@ -154,7 +155,7 @@ public class Main {
 		hours = scan.nextInt();
 		System.out.println("Please enter flight minutes");
 		minutes = scan.nextInt();
-		Date fltDate = new Date(year, month, day, hours, minutes);
+		Date fltDate = new Date(year, month-1, day, hours, minutes);
 		return fltDate;
 	}
 

@@ -1,5 +1,8 @@
 package pkg;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Vector;
 
@@ -11,8 +14,8 @@ public class Airport {
 	private String city;
 	private int numOfFlights;
 	private final String airportCode = "TLV";
-	private Vector arrivals;
-	private Vector departures;
+	private Vector <Flight> arrivals;
+	private Vector <Flight> departures;
 
 	public Airport(String code) {
 
@@ -98,7 +101,7 @@ public class Airport {
 	public String searchByTime(Vector <Flight> v1, Date date) {
 		StringBuffer str = new StringBuffer();
 		for (int i = 0; i < v1.size(); i++) {
-			if(v1.get(i).getTime()==date) {
+			if(v1.get(i).getTime().equals(date)) {
 				str.append((i+1)+"."+v1.get(i)+"\n");
 			}
 		}
@@ -126,6 +129,23 @@ public class Airport {
 			
 		}
 		return str+"";
+	}
+
+	public void exportToText() {
+		File f = new File ("NatbagExport.txt");
+		try {
+			PrintWriter pw = new PrintWriter(f);
+			for (int i = 0; i < arrivals.size(); i++) {
+				pw.write(arrivals.get(i).getExport()+"\n");
+			}
+			for (int i = 0; i < departures.size(); i++) {
+				pw.write(departures.get(i).getExport()+"\n");
+			}
+			pw.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
