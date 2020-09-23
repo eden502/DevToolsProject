@@ -12,15 +12,15 @@ public class Airport {
 
 	private String name;
 	private String city;
-	private int numOfFlights;
+	private static int numOfFlights;
 	private final String airportCode = "TLV";
 	private Vector <Flight> arrivals;
 	private Vector <Flight> departures;
 
 	public Airport(String code) {
 
-		arrivals = new Vector();
-		departures = new Vector();
+		arrivals = new Vector <Flight>();
+		departures = new Vector <Flight>();
 		name = code;
 	}
 
@@ -30,6 +30,7 @@ public class Airport {
 				arrivals.add(newF);
 				System.out.println("Arrival added succesfuly");
 				sortByTime(arrivals);
+				numOfFlights++;
 				return true;
 			}
 		}
@@ -38,6 +39,7 @@ public class Airport {
 				departures.add(newF);
 				System.out.println("Departure added succesfuly");
 				sortByTime(departures);
+				numOfFlights++;
 				return true;
 			}
 		}
@@ -91,10 +93,10 @@ public class Airport {
 		}
 		return str;
 	}
-	public Vector getArrivals() {
+	public Vector <Flight> getArrivals() {
 		return this.arrivals;
 	}
-	public Vector getDepartures() {
+	public Vector <Flight> getDepartures() {
 		return this.departures;
 	}
 
@@ -135,6 +137,7 @@ public class Airport {
 		File f = new File ("NatbagExport.txt");
 		try {
 			PrintWriter pw = new PrintWriter(f);
+			pw.write(numOfFlights+"\n");
 			for (int i = 0; i < arrivals.size(); i++) {
 				pw.write(arrivals.get(i).getExport()+"\n");
 			}

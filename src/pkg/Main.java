@@ -9,7 +9,6 @@ import pkg.Flight.flightClass;
 public class Main {
 
 	public static void main(String[] args) {
-
 		Scanner scan = new Scanner(System.in);
 		Airport AP = new Airport("TLV");
 		Date d1 = new Date(2020, 9, 10, 10, 10);
@@ -19,12 +18,14 @@ public class Main {
 		AP.addFlight(f1);
 		AP.addFlight(f2);
 		System.out.println("Welcome to Natbag Flight Planner 2020");
-		int choice;
+		int choice = 0;
+		
 		do {
 			showMenu();
 			choice = scan.nextInt();
 			switch (choice) {
 			case 1:
+				
 				String name, code, CTDest, CTOrigin, COrigin, CDest, APOrigin, APDest;
 				int fltNum, month, day, year, time;
 				System.out.println("Please enter carrier name: ");
@@ -62,6 +63,7 @@ public class Main {
 				Flight flt = new Flight(code, fltNum, name, APDest, APOrigin, CTDest, CTOrigin, CDest, COrigin,
 						fltDate);
 				AP.addFlight(flt);
+				
 				break;
 			case 2:
 				System.out.println("Please choose category:\n1: Departures.\n2: Arrivals\n0: Cancel.");
@@ -123,9 +125,11 @@ public class Main {
 				break;
 
 			}
+			
 		} while (choice != 0);
-
+		
 		scan.close();
+		
 	}
 
 	public static void showMenu() {
