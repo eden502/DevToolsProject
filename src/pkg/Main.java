@@ -115,13 +115,7 @@ public class Main {
 				}
 				break;
 			case 7:
-
-				break;
-			case 8:
 				AP.exportToText();
-				break;
-			case 9:
-
 				break;
 
 			}
@@ -141,8 +135,7 @@ public class Main {
 		System.out.println("4: Arrivals Schedule");
 		System.out.println("5: Search Arrivals");
 		System.out.println("6: Search Departures");
-		System.out.println("7: Read From File");
-		System.out.println("8: Write To File");
+		System.out.println("7: Write To File");
 		System.out.println("0: Exit");
 	}
 
