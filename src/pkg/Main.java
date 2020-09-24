@@ -27,7 +27,7 @@ public class Main {
 			case 1:
 				
 				String name, code, CTDest, CTOrigin, COrigin, CDest, APOrigin, APDest;
-				int fltNum, month, day, year, time;
+				int fltNum;
 				System.out.println("Please enter carrier name: ");
 				name = scan.next();
 				System.out.println("Please enter flight number: ");
@@ -160,6 +160,7 @@ public class Main {
 		System.out.println("Please enter flight minutes");
 		minutes = scan.nextInt();
 		Date fltDate = new Date(year, month-1, day, hours, minutes);
+		scan.close();
 		return fltDate;
 	}
 
